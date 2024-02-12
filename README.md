@@ -63,8 +63,27 @@ set a max number (`--mc`).  If the number of candidates exceeds
 this value, then no plots will be made (except for a few for diagnostic 
 purposes).
 
-## Parameter File
+## Output
+The pipeline produces various output files.  These will be put in 
+the output directory (specified in parameter file) and organized as 
+follows.  The top directory will something like `s01-FRBRX1`, where 
+`s01` means scan one and `FRBRX1` is the source name in the scan 
+table.  Inside this directory will be the results for that scan, 
+e.g., 
 
+    > ls s01-FRBRX1/
+    cs/  out-slcp-0001/  out-srcp-0001/  slcp-0001.log  srcp-0001.log  vdr/
+
+In this case, we have just processed the s-band data.  The `cs/` directory 
+contains the `.cs` baseband files.  The `vdr/` directory contains the 
+`.vdr` files until they are converted to `.cs`, at which point the `.vdr` files 
+are deleted. The `out-slcp-0001` directory contains the output for the lcp 
+search including the coherently de-dispersed channelized filterbank, the 
+de-dispersed time series, and the search results.  The error and output from 
+the processing and search can be foundin the `slcp-0001.log` file. 
+
+    
+## Parameter File
 Here is an example parameter file. Most of this should be 
 self-explanatory.  Right now telescope options are just the 
 DSN stations ("robledo", "goldstone", "canberra").

@@ -1,0 +1,52 @@
+#############################################################
+##           PARAMETER FILE FOR FRB_PROCESS.PY            ##
+##                                                        ##
+##  Note that this is NOT imported as a module, but is    ##
+##  instead parsed as a text file.  That means that you   ##
+##  cannot set parameters by referencing others in this   ##
+##  file (e.g., name = freq + '_100').                    ##
+############################################################
+
+#####################
+###   OBS INFO    ### 
+#####################
+
+freq_band = "s" # set to x or s 
+source = "FRB220912A" 
+telescope = "robledo" 
+
+############################
+###  OUTPUT DIRECTORIES  ###
+############################
+
+# Output directory
+outdir = "."
+
+##########################
+###  INPUT VRAD FILES  ###
+########################## 
+
+# Directory containing the vrad files
+vrad_dir = "/raw/22m295"
+
+# vrad base 
+vrad_base = "22-295"
+
+# Names of info file
+#  -->  Place these in output directory
+inf_file = "scan.table.22m295"
+
+######################
+###  STEPS TO RUN  ###
+######################
+
+# Use (0 or False) and (1 or True) to 
+# set which steps to run
+
+vrad_to_cs  = 1
+cs_to_fil   = 1
+
+# max number of processes to run at 
+# once with parallel processing
+nproc = 8
+

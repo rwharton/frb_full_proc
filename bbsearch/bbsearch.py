@@ -434,8 +434,8 @@ def parse_input():
            help='Apply the zero DM filter when dedispersing')
     parser.add_argument('--badblocks', action='store_true', 
            help='Ignore bad blocks in single pulse search')
-    parser.add_argument('-tel', '--tel', default='RO', required=False, 
-           help='DSN Telescope Name GS/RO/CN (def: RO)')
+    parser.add_argument('-tel', '--tel', default=None, required=False, 
+           help='DSN Telescope Name GS/RO/CN (def: None)')
 
     args = parser.parse_args()
 
@@ -500,8 +500,11 @@ def main():
         return 
 
     ### Run fix file ###
-    dsn = True
-    fix_file(filfile, tel, dsn)
+    if tel is not None:
+        dsn = True
+        fix_file(filfile, tel, dsn)
+    else: 
+        pass
 
     ### Get filterbank info ###
     nchans, fch1, foff, dt = get_chan_info(filfile)

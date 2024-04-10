@@ -316,7 +316,7 @@ def main():
     rfi_tdec = check_rfi_tavg(nchan, rfi_tdec)
     if rfi_tdec > 0:
         dec_dur, rfi_fil = make_rfi_fil(filfile, outdir, tfac=rfi_tdec, 
-                                        nthread=nthread) 
+                                        nthread=1) 
         # Find bad channels from bandpass       
         nchan_win = bp_rfi.get_win_num(nchan, nsub, wfrac=0.2) 
         zap_str = bp_rfi.bp_bad_chans(rfi_fil, outdir, mode='avg', 

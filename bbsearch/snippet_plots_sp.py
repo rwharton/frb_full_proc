@@ -364,6 +364,7 @@ def make_plot(filfile, dm, favg=1, tavg=1, spec_sig=5,
 
     if outfile is not None:
         plt.savefig(outfile, dpi=100, bbox_inches='tight')
+        plt.close()
         plt.ion()
     else:
         plt.show()
